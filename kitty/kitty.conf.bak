@@ -1,0 +1,56 @@
+# FONT
+# font_family FiraCode Nerd Font
+# font_family Cascadia Code
+# font_family      family='JetBrainsMono Nerd Font Mono' style=Light features='+zero +ss02 +cv04 +cv16 +cv18 +cv19 +cv20'
+# bold_font               auto
+# italic_font             auto
+# bold_italic_font        auto
+# font_size               12.0
+modify_font cell_height 120%
+
+# ICONS
+# symbol_map U+D000-U+D1F6 termicons
+
+# THEME 
+include ./themes/tokyonight_night.conf
+# include ./theme.conf
+
+# Title bar
+# hide_window_decorations yes
+# window_logo_alpha 0.2
+
+# Transparency
+background_opacity 0.9
+background_blur 1
+# dynamic_background_opacity True
+# linux_display_server x11
+
+# Padding
+window_padding_width 4
+placement_strategy center
+
+# Bell
+# bell_on_tab "🔔 " 5.0
+# notify_on_cmd_finish invisible 5.0 bell
+
+# SETTINGS
+# Start
+initial_window_height   640
+initial_window_width    400
+
+
+# tabs
+tab_bar_edge top
+tab_bar_style powerline
+# tab_powerline_style slanted
+# tab_activity_symbol 
+# tab_separator " | "
+
+# Keybindings
+map ctrl+backspace send_text all \x17
+map alt+tab none
+# disable_input_codes 27
+
+# BEHAIVOR
+# allow_remote_control yes
+narrow_symbols U+E0A0-U+E0A3,U+E0C0-U+E0C7 1
