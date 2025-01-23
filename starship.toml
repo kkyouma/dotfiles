@@ -231,7 +231,7 @@ symbol = " "
 symbol = " "
 
 [python]
-style = "blue"
+style = "dark_blue"
 symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
