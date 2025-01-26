@@ -41,16 +41,9 @@ return {
         completion = { completeopt = 'menu,menuone,noinsert' },
         formatting = {
           fields = { 'abbr', 'kind', 'menu' },
-          expandable_indicator = false,
+          expandable_indicator = true,
           format = lspkind.cmp_format {
             mode = 'symbol_text',
-            menu = {
-              buffer = '[Buffer]',
-              nvim_lsp = '[LSP]',
-              luasnip = '[LuaSnip]',
-              nvim_lua = '[Lua]',
-              latex_symbols = '[Latex]',
-            },
           },
         },
         window = {
@@ -77,7 +70,7 @@ return {
           { name = 'path' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'buffer', keyword_length = 3 },
+          { name = 'buffer',  keyword_length = 3 },
         },
       }
     end,
