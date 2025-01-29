@@ -33,3 +33,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Autowrap
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  desc = 'Wrap text when it exceeds the right margin',
+  pattern = { 'markdown', 'text', 'tex' },
+  callback = function()
+    vim.opt_local.wrap = true      -- Enable text wrapping
+    vim.opt_local.linebreak = true -- Break lines at word boundaries
+  end,
+})

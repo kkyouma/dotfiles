@@ -1,8 +1,8 @@
 -- Clear highlights on search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic 
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, {desc = 'Open diagnostic [Q]'})
+-- Diagnostic
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]' })
 
 -- Delete word backwards in Insert Mode
 vim.keymap.set('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
@@ -24,3 +24,13 @@ vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
 
 -- Diagnostic
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { noremap = true, silent = true })
+
+-- LaTeX ------------------------------------------------------------
+-- Compile
+vim.keymap.set('n', '<leader>ll', '<cmd>VimtexCompile<cr>', { desc = 'LaTeX Compile' })
+
+-- View PDF
+vim.keymap.set('n', '<leader>lv', '<cmd>VimtexView<cr>', { desc = 'View PDF' })
+
+-- Clean auxiliary files
+vim.keymap.set('n', '<leader>lc', '<cmd>VimtexClean<cr>', { desc = 'Clean LaTeX' })

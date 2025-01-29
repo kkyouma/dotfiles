@@ -18,10 +18,13 @@ return {
         dependencies = {},
       },
       'saadparwaiz1/cmp_luasnip',
-      -- 'rafamadriz/friendly-snippets', -- Anoying premade snippets
-      -- config = function()
-      --  require('luasnip.loaders.from_vscode').lazy_load()
-      -- end,
+      'rafamadriz/friendly-snippets', -- Anoying premade snippets
+      config = function()
+        require('luasnip.loaders.from_vscode').lazy_load {
+          paths = { '~/path/to/friendly-snippets' },
+          include = { 'tex' }, -- Load LaTeX snippets
+        }
+      end,
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'onsails/lspkind.nvim', -- Icons
