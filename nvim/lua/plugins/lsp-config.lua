@@ -1,91 +1,118 @@
-local servers = { 'lua_ls', 'pyright', 'sqlls', 'taplo', 'ruff', 'astro' }
-
 return {
   {
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup()
-    end,
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    config = function()
-      require('mason-lspconfig').setup {
-        ensure_installed = servers,
-      }
-    end,
-  },
-  -- LSP Config
-  {
     'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'williamboman/mason.nvim', opts = {} },
+      'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'j-hui/fidget.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+    },
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local lspconfig = require 'lspconfig'
+      -- Enable Nerd Font diagnostic symbols
+      -- local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+      -- for type, icon in pairs(signs) do
+      --   local hl = 'DiagnosticSign' .. type
+      --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      -- end
 
-      local on_attach = function(client, bufnr)
-        local opts = { buffer = bufnr }
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>rn', vim.lsp.buf.rename, opts)
-      end
+      -- LSP Attach Configuration
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('custom-lsp-attach', { clear = true }),
+        callback = function(event)
+          local map = function(keys, func, desc, mode)
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          end
 
-      -- lua_ls (LSP)
-      lspconfig.lua_ls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
+          -- Navigation
+          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-      -- Pyright (LSP)
-      lspconfig.pyright.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        filetypes = { 'python' },
-        settings = {
-          pyright = {
-            disableOrganizeImports = false, -- Using Ruff
-          },
-          python = {
-            analysis = {
-              typeCheckingMode = 'standard', -- Using mypy (last config: "off")
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
+          -- Actions
+          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'v' })
+          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+          -- Enable inlay hints if available
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+            map('<leader>th', function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end, '[T]oggle Inlay [H]ints')
+          end
+        end,
+      })
+
+      -- Capabilities with nvim-cmp integration
+      local capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(),
+        require('cmp_nvim_lsp').default_capabilities())
+
+      -- Language Server Settings
+      local servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = { callSnippet = 'Replace' },
+              workspace = { checkThirdParty = false },
+              telemetry = { enable = false },
             },
           },
         },
+        pyright = {
+          settings = {
+            pyright = { disableOrganizeImports = true },
+            python = {
+              analysis = {
+                typeCheckingMode = 'standard',
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+        },
+        ruff = {
+          settings = {
+            configurationPreference = 'filesystemFirst',
+            organizeImports = true,
+            lineLength = 88,
+          },
+        },
+        sqlls = {},
+        taplo = {},
+        astro = {},
+        marksman = {},
+        texlab = {},
       }
 
-      -- Ruff (LSP)
-      lspconfig.ruff.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        filetypes = { 'python' },
-        trace = 'messages',
-        settings = {
-          configurationPreference = 'filesystemFirst', -- editorFirst
-          organizeImports = true,
-          logLevel = 'info',
-          lineLenght = 88,
-          lint = true,
+      -- Mason LSP Configuration
+      -- Mason Tool Installer Configuration
+      require('mason-tool-installer').setup {
+        ensure_installed = {
+          'stylua',
+          'ruff',
+          -- Add other tools as needed
+        },
+        auto_update = true,
+      }
+
+      require('mason-lspconfig').setup {
+        ensure_installed = vim.tbl_keys(servers),
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig')[server_name].setup(server)
+          end,
         },
       }
 
-      -- sqlls
-      lspconfig.sqlls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      -- taplo
-      lspconfig.taplo.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-
-      -- astro
-      lspconfig.astro.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
+      -- Enable fidget for LSP progress
+      require('fidget').setup()
     end,
   },
 }
