@@ -1,5 +1,4 @@
 -- NOTE: formatting and diagnostic
--- INFO: black and isort are deactivated, ruff is working inplace
 
 return {
   'nvimtools/none-ls.nvim',
@@ -27,7 +26,7 @@ return {
         null_ls.builtins.formatting.stylua, -- lua
         null_ls.builtins.formatting.prettier.with {
           filetypes = { 'astro', 'typescript', 'javascript', 'yaml', 'markdown', 'json', 'html' },
-        }, -- javascript
+        },                                         -- javascript
         null_ls.builtins.formatting.sql_formatter, -- sql
         -- WARNING: eslint_d is not founded
         -- null_ls.builtins.diagnostic.eslint_d, -- javascript typescript

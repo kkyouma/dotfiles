@@ -4,10 +4,11 @@ return {
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   opts = {
-    ensure_installed = { 'markdown', 'markdown_inline' },
+    ensure_installed = { 'csv', 'markdown', 'markdown_inline' },
     auto_install = true,
     highlight = {
       enable = true,
+      disable = { 'csv' },
       additional_vim_regex_highlighting = { 'ruby' },
     },
     -- run = ':TSUpdate',
