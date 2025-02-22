@@ -26,13 +26,51 @@ return {
         }
       end,
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'onsails/lspkind.nvim', -- Icons
+      'micangl/cmp-vimtex',
     },
     config = function()
       local cmp = require 'cmp'
       local lspkind = require 'lspkind'
       local luasnip = require 'luasnip'
+
+      -- local kind_icons = {
+      --   article = '󰧮 ',
+      --   book = ' ',
+      --   incollection = '󱓷 ',
+      --   Function = '󰊕 ',
+      --   Constructor = ' ',
+      --   Text = '󰦨 ',
+      --   Method = ' ',
+      --   Field = '󰅪 ',
+      --   Variable = '󱃮 ',
+      --   Class = ' ',
+      --   Interface = ' ',
+      --   Module = ' ',
+      --   Property = ' ',
+      --   Unit = ' ',
+      --   Value = '󰚯 ',
+      --   Enum = ' ',
+      --   Keyword = ' ',
+      --   Snippet = ' ',
+      --   Color = '󰌁',
+      --   -- Color = "",
+      --   File = '',
+      --   Reference = ' ',
+      --   Folder = ' ',
+      --   EnumMember = ' ',
+      --   -- spell = "",
+      --   -- EnumMember = "",
+      --   Constant = '󰀫 ',
+      --   Struct = '',
+      --   -- Struct = "",
+      --   Event = ' ',
+      --   Operator = '󰘧 ',
+      --   TypeParameter = ' ',
+      -- }
+
       luasnip.config.setup {}
 
       cmp.setup {
@@ -73,7 +111,8 @@ return {
           { name = 'path' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'buffer',  keyword_length = 3 },
+          { name = 'vimtex' },
+          { name = 'buffer', keyword_length = 3 },
         },
       }
     end,

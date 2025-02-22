@@ -28,6 +28,9 @@ return {
           filetypes = { 'astro', 'typescript', 'javascript', 'yaml', 'markdown', 'json', 'html' },
         },                                         -- javascript
         null_ls.builtins.formatting.sql_formatter, -- sql
+        null_ls.builtins.formatting.latexindent,
+        -- null_ls.builtins.diagnostics.chktex,
+        -- null_ls.builtins.diagnostics.lacheck,
         -- WARNING: eslint_d is not founded
         -- null_ls.builtins.diagnostic.eslint_d, -- javascript typescript
       },
