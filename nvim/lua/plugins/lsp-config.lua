@@ -65,18 +65,46 @@ return {
         },
         pyright = {
           settings = {
-            pyright = { disableOrganizeImports = true },
+            pyright = {
+              disableOrganizeImports = true,
+              typeCheckingMode = 'standard',
+            },
             python = {
               analysis = {
+                -- Disable non-type-related diagnostics
+                diagnosticMode = 'workspace',
                 typeCheckingMode = 'standard',
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
+                -- Disable general code checks
+                reportGeneralTypeIssues = true, -- Keep type-related reports
+                reportOptionalMemberAccess = true,
+                reportOptionalSubscript = true,
+                reportOptionalCall = true,
+                reportOptionalIterable = true,
+                reportPrivateImportUsage = false,
+                reportUnusedImport = false,   -- Let Ruff handle these
+                reportUnusedVariable = false, -- Let Ruff handle these
+                reportMissingImports = false, -- Let Ruff handle these
               },
             },
           },
         },
         ruff = {
           settings = {
+            lint = {
+              ignore = {
+                'RET',
+                'ANN',
+              },
+              extendSelect = {
+                'F',  -- Flake8
+                'E',  -- Pycodestyle
+                'W',  -- Pycodestyle
+                'UP', -- Pyupgrade
+                'I',  -- Isort
+              },
+            },
             configurationPreference = 'filesystemFirst',
             organizeImports = true,
             lineLength = 88,
@@ -86,7 +114,18 @@ return {
         taplo = {},
         astro = {},
         marksman = {},
-        texlab = {},
+        texlab = {
+          settings = {
+            texlab = {
+              onOpenAndSave = true,
+            },
+            build = {
+              executable = 'latexmk',
+              args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+              onSave = true,
+            },
+          },
+        },
       }
 
       -- Mason LSP Configuration

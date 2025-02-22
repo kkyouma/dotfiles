@@ -9,6 +9,7 @@ return {
   },
   config = function()
     require('notify').setup {
+      merge_duplicates = true,
       timeout = 300,
       max_height = 3,
       max_width = 50,
@@ -48,15 +49,6 @@ return {
             any = {
               { event = 'msg_show', kind = '', find = 'written' },
               { event = 'msg_show', kind = '', find = 'No information available' },
-              { event = 'msg_show', kind = '', find = 'Undo' },
-              { event = 'msg_show', kind = '', find = 'Redo' },
-            },
-          },
-          opts = { skip = true },
-        },
-        {
-          filter = {
-            any = {
               { event = 'msg_show', kind = '', find = 'Undo' },
               { event = 'msg_show', kind = '', find = 'Redo' },
             },
