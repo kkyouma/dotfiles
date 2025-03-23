@@ -54,11 +54,11 @@ return {
           color = '#CB171E',
           name = 'Yaml',
         },
-        ['tex'] = {
-          icon = ' ',
-          color = '#008080',
-          name = 'Latex',
-        },
+        -- ['tex'] = {
+        --   icon = ' ',
+        --   color = '#008080',
+        --   name = 'Latex',
+        -- },
         -- Special files
         ['package.json'] = {
           icon = '󰎙 ',
@@ -105,7 +105,7 @@ return {
         },
         ['requirements.txt'] = {
           icon = ' ',
-          color = '#B71C1C',
+          color = '#EF5350',
           name = 'Requirements',
         },
         ['docker-compose.yml'] = {

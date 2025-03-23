@@ -4,7 +4,7 @@ local config = {}
 config.color_scheme = "tokyonight_night"
 
 config.term = "wezterm"
-config.front_end = "OpenGL"
+-- config.front_end = "OpenGL"
 config.custom_block_glyphs = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
