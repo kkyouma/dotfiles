@@ -39,7 +39,15 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   desc = 'Wrap text when it exceeds the right margin',
   pattern = { 'markdown', 'text', 'tex' },
   callback = function()
-    vim.opt_local.wrap = true      -- Enable text wrapping
+    vim.opt_local.wrap = true -- Enable text wrapping
     vim.opt_local.linebreak = true -- Break lines at word boundaries
   end,
 })
+
+-- Changing Python highlight
+vim.api.nvim_set_hl(0, '@module.python', { link = 'Variable' })
+vim.api.nvim_set_hl(0, '@string.documentation.python', { link = 'Comment' })
+
+-- Changing TOML and YML highlight
+vim.api.nvim_set_hl(0, '@property.toml', { link = '@module.builtin' })
+vim.api.nvim_set_hl(0, '@property.yml', { link = '@module.builtin' })

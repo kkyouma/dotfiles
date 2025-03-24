@@ -11,6 +11,9 @@ return {
       disable = { 'csv' },
       additional_vim_regex_highlighting = { 'ruby', 'tex' },
     },
+    playground = {
+      enable = true,
+    },
     -- run = ':TSUpdate',
     indent = {
       enable = true,
