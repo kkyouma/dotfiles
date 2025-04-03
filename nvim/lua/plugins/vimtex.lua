@@ -7,5 +7,14 @@ return {
     vim.g.vimtex_view_method = 'zathura'      -- PDF viewer (linux)
     vim.g.vimtex_compiler_method = 'latexmk'  -- Compiler backend
     vim.g.vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+    vim.g.vimtex_compiler_latexmk = {
+      options = {
+        '-shell-escape',
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+      },
+    }
   end,
 }
