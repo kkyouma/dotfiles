@@ -51,14 +51,14 @@ return {
         },
         ['yml'] = {
           icon = ' ',
-          color = '#CB171E',
+          color = '#D33833',
           name = 'Yaml',
         },
-        -- ['tex'] = {
-        --   icon = ' ',
-        --   color = '#008080',
-        --   name = 'Latex',
-        -- },
+        ['tex'] = {
+          icon = ' ',
+          color = '#41A5F5',
+          name = 'Latex',
+        },
         -- Special files
         ['package.json'] = {
           icon = '󰎙 ',
@@ -147,7 +147,7 @@ return {
         },
         ['pdf'] = {
           icon = ' ',
-          color = '#D33833',
+          color = '#EF5350',
           name = 'Pdf',
         },
         ['csv'] = {

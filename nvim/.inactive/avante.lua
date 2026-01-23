@@ -5,13 +5,11 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      provider = 'deepseek',
+      provider = 'gemini',
       vendors = {
-        deepseek = {
-          __inherited_from = 'openai',
-          -- api_key_name = 'sk-cd25d72131434964b045ad907093bfaf',
+        gemini = {
           endpoint = 'https://api.deepseek.com',
-          model = 'deepseek-coder',
+          model = 'gemini-pro',
         },
       },
     },
@@ -25,7 +23,7 @@ return {
       'MunifTanjim/nui.nvim',
       --- The below dependencies are optional,
       'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
-      'zbirenbaum/copilot.lua',      -- for providers='copilot'
+      'zbirenbaum/copilot.lua', -- for providers='copilot'
       {
         -- support for image pasting
         'HakonHarnes/img-clip.nvim',

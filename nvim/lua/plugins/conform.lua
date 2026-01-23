@@ -4,43 +4,46 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
-  dependencies = {
-    'williamboman/mason.nvim',
+  keys = {
+    {
+      '<leader>f',
+      function()
+        require('conform').format { async = true, lsp_format = 'fallback' }
+      end,
+      mode = '',
+      desc = '[F]ormat buffer',
+    },
   },
-  config = function()
-    local conform = require 'conform'
-
-    conform.setup {
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        python = { 'ruff_format', 'ruff' },
-        javascript = { 'prettier' },
-        typescript = { 'prettier' },
-        astro = { 'prettier' },
-        yaml = { 'prettier' },
-        markdown = { 'prettier' },
-        json = { 'prettier' },
-        html = { 'prettier' },
-        sql = { 'sql_formatter' },
-        -- Add more filetypes and formatters as needed
-      },
-      formatters = {
-        ruff = {
-          args = { '--select', 'I', '--fix', '-' },
-        },
-      },
-      -- Format on save (similar to the keybinding you had)
-      format_on_save = {
-        -- Customize options if needed
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 500,
-      },
-    }
-
-    -- Keybinding for manual formatting (same as your original config)
-    vim.keymap.set('n', '<leader>f', function()
-      conform.format { lsp_fallback = true }
-    end, { desc = 'Format document' })
-  end,
+  opts = {
+    notify_on_error = true,
+    format_on_save = function(bufnr)
+      -- Disable "format_on_save lsp_fallback" for languages that don't
+      -- have a well standardized coding style. You can add additional
+      -- languages here or re-enable it for the disabled ones.
+      local disable_filetypes = { c = true, cpp = true }
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        return nil
+      else
+        return {
+          timeout_ms = 500,
+          lsp_format = 'fallback',
+        }
+      end
+    end,
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      python = { 'ruff_format', 'ruff' },
+      javascript = { 'prettier' },
+      typescript = { 'prettier' },
+      css = { 'prettier' },
+      html = { 'prettier' },
+      astro = { 'astro-language-server astro' },
+      yaml = { 'prettier' },
+      markdown = { 'prettier' },
+      json = { 'prettier' },
+      sql = { 'sql_formatter' },
+      -- You can use 'stop_after_first' to run the first available formatter from the list
+      -- javascript = { "prettierd", "prettier", stop_after_first = true },
+    },
+  },
 }

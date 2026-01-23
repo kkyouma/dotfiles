@@ -28,6 +28,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
       'onsails/lspkind.nvim', -- Icons
       'micangl/cmp-vimtex',
     },
@@ -113,6 +114,8 @@ return {
           { name = 'luasnip' },
           { name = 'vimtex' },
           { name = 'buffer', keyword_length = 3 },
+          { name = 'nvim_lsp_signature_help' },
+          { name = 'render-markdown' },
         },
       }
     end,

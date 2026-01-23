@@ -49,8 +49,7 @@ return {
       })
 
       -- Capabilities with nvim-cmp integration
-      local capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(),
-        require('cmp_nvim_lsp').default_capabilities())
+      local capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), require('cmp_nvim_lsp').default_capabilities())
 
       -- Language Server Settings
       local servers = {
@@ -83,7 +82,7 @@ return {
                 reportOptionalCall = true,
                 reportOptionalIterable = true,
                 reportPrivateImportUsage = false,
-                reportUnusedImport = false,   -- Let Ruff handle these
+                reportUnusedImport = false, -- Let Ruff handle these
                 reportUnusedVariable = false, -- Let Ruff handle these
                 reportMissingImports = false, -- Let Ruff handle these
               },
@@ -98,11 +97,11 @@ return {
                 'ANN',
               },
               extendSelect = {
-                'F',  -- Flake8
-                'E',  -- Pycodestyle
-                'W',  -- Pycodestyle
+                'F', -- Flake8
+                'E', -- Pycodestyle
+                'W', -- Pycodestyle
                 'UP', -- Pyupgrade
-                'I',  -- Isort
+                'I', -- Isort
               },
             },
             configurationPreference = 'filesystemFirst',

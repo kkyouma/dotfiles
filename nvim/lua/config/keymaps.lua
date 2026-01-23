@@ -3,6 +3,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { noremap = true, silent = true })
 
 -- Delete word backwards in Insert Mode
 vim.keymap.set('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
@@ -21,9 +22,6 @@ vim.keymap.set('n', '<C-S>', '<cmd>Neotree toggle buffers reveal float<CR>', {})
 -- Hold selection in ident
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
-
--- Diagnostic
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { noremap = true, silent = true })
 
 -- LaTeX ------------------------------------------------------------
 -- Compile

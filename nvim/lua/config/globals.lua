@@ -51,3 +51,25 @@ vim.api.nvim_set_hl(0, '@module.python', { link = 'Variable' })
 -- Changing TOML and YML highlight
 vim.api.nvim_set_hl(0, '@property.toml', { link = '@module.builtin' })
 vim.api.nvim_set_hl(0, '@property.yml', { link = '@module.builtin' })
+
+vim.diagnostic.config { virtual_text = true }
+
+-- Which-key toggle
+-- _G.which_key_enabled = true
+--
+-- local function toggle_which_key()
+--   local wk = require 'which-key'
+--
+--   if _G.which_key_enabled then
+--     wk.setup { triggers = {} }
+--     _G.which_key_enabled = false
+--     print 'Which-key disabled'
+--   else
+--     wk.setup { triggers = { { '<auto>', mode = 'nxso' } } }
+--     _G.which_key_enabled = true
+--     print 'Which-key enabled'
+--   end
+-- end
+--
+-- vim.api.nvim_create_user_command('ToggleWhichKey', toggle_which_key, {})
+-- vim.keymap.set('n', '<leader>wk', toggle_which_key, { desc = 'Toggle which-key' })

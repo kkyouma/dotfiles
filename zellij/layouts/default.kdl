@@ -15,7 +15,7 @@ layout {
                 border_position "top"
 
                 mode_normal        "#[bg=#a6da95,fg=#181926,bold] NORMAL#[bg=#181926,fg=#a6da95]█"
-                mode_locked        "#[bg=#6e738d,fg=#181926,bold] LOCKED #[bg=#181926,fg=#6e738d]█"
+                mode_locked        "#[bg=#6e738d,fg=#181926,bold] LOCKED  #[bg=#181926,fg=#6e738d]█"
                 mode_resize        "#[bg=#f38ba8,fg=#181926,bold] RESIZE#[bg=#181926,fg=#f38ba8]█"
                 mode_pane          "#[bg=#89b4fa,fg=#181926,bold] PANE#[bg=#181926,fg=#89b4fa]█"
                 mode_tab           "#[bg=#b4befe,fg=#181926,bold] TAB#[bg=#181926,fg=#b4befe]█"
@@ -43,9 +43,9 @@ layout {
                 tab_separator           "#[bg=#181926] "
                 
                 // indicators
-                tab_sync_indicator       " "
-                tab_fullscreen_indicator " 󰊓"
-                tab_floating_indicator   " 󰹙"
+                tab_sync_indicator       "  "
+                tab_fullscreen_indicator " 󰊓 "
+                tab_floating_indicator   " 󰹙 "
 
             }
         }

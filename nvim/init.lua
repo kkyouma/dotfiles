@@ -1,2 +1,2 @@
-require("config")
-require("lazy").setup("plugins")
+require 'config'
+require('lazy').setup 'plugins'

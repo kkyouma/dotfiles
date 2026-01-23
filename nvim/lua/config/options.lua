@@ -49,6 +49,7 @@ opt.mouse:append 'a'
 opt.modifiable = true
 opt.encoding = 'UTF-8'
 opt.shell = 'zsh'
+opt.confirm = true -- Perform operation instead of raise dialog asking for unsaved files
 
 opt.pumheight = 3 -- limit completion items
 opt.fillchars = { eob = ' ' } -- replace the `~` for blank spaces
