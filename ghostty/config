@@ -4,6 +4,6 @@ background-blur-radius = 10
 background-opacity = 0.5
 
 window-decoration = server
-theme = tokyonight
+theme = tokyonight_night
 
 keybind = ctrl+backspace=text:\x17
