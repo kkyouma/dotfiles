@@ -1,0 +1,62 @@
+[colors]
+foreground = "#CBE0F0"      # fg
+background = "#011628"      # bg
+cursor_bg = "#CBE0F0"       # fg
+cursor_border = "#CBE0F0"   # fg
+cursor_fg = "#011628"       # bg
+selection_bg = "#275378"    # bg_visual
+selection_fg = "#CBE0F0"    # fg
+split = "#547998"           # border
+compose_cursor = "#0A64AC"  # bg_search (como acento)
+scrollbar_thumb = "#143652" # bg_highlight
+
+# He ajustado levemente los ANSI para que armonicen con el nuevo fondo azul
+ansi = [
+  "#011423",
+  "#f7768e",
+  "#9ece6a",
+  "#e0af68",
+  "#547998",
+  "#bb9af7",
+  "#7dcfff",
+  "#B4D0E9",
+]
+brights = [
+  "#627E97",
+  "#ff899d",
+  "#9fe044",
+  "#faba4a",
+  "#A4DAFF",
+  "#c7a9ff",
+  "#CBE0F0",
+  "#FFFFFF",
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#011423" # bg_dark
+background = "#011423"        # bg_dark
+
+[colors.tab_bar.active_tab]
+fg_color = "#011628" # bg
+bg_color = "#0A64AC" # bg_search (para resaltar la pestaña activa)
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#627E97" # fg_gutter
+bg_color = "#143652" # bg_highlight
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#CBE0F0" # fg
+bg_color = "#275378" # bg_visual
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#CBE0F0" # fg
+bg_color = "#275378" # bg_visual
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#B4D0E9" # fg_dark
+bg_color = "#011628" # bg
+
+[metadata]
+author = "Adaptado"
+name = "deep_blue_custom"
