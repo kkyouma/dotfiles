@@ -6,9 +6,6 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Images
--- vim.api.nvim_set_keymap('n', '<leader>ip', ":lua require('image_preview').toggle_preview()<CR>", { noremap = true, silent = true })
-
 -- Underline
 vim.api.nvim_create_autocmd('ColorScheme', {
   pattern = '*',
