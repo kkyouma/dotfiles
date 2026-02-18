@@ -15,7 +15,7 @@ return {
         },
         map_keys = true,
         key_bindings = {
-          accept = '<C-n>',
+          accept = '<C-i>',
           accept_word = '<C-Right>',
           accept_line = '<C-Down>',
           clear = '<C-x>',
@@ -23,7 +23,7 @@ return {
           prev = '<M-[>',
         },
         enabled = true,
-        idle_delay = 3000,
+        idle_delay = 50,
       },
       workspace_root = {
         use_lsp = true,
