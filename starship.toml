@@ -1,281 +1,150 @@
+# ==========================================
+# CONFIGURACIÓN GENERAL
+# ==========================================
+palette = "tokyo_night"
+add_newline = true
+
+# Lado Izquierdo: Limpio y enfocado en la navegación y Git
 format = """
-$username\
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
 $directory\
-$vcsh\
-$fossil_branch\
-$fossil_metrics\
 $git_branch\
-$git_commit\
 $git_state\
-$git_metrics\
 $git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
-$package\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
 $aws\
 $gcloud\
-$openstack\
 $azure\
-$nats\
-$direnv\
-$env_var\
-$crystal\
-$custom\
-$fill\
-$sudo\
-$c\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
-$gleam\
-$golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$quarto\
-$raku\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$solidity\
-$swift\
-$terraform\
-$typst\
-$vlang\
-$vagrant\
-$zig\
-$cmd_duration\
 $line_break\
-$jobs\
-$battery\
-$time\
-$status\
-$os\
-$container\
-$shell\
 $character"""
 
-palette = "tokyo_night"
+# Lado Derecho: Tecnologías, Infraestructura y Tiempo
+right_format = """
+$python\
+$java\
+$nodejs\
+$rust\
+$docker_context\
+$kubernetes\
+$terraform\
+$cmd_duration\
+"""
 
-[sudo]
-format = "[$symbol]($style)"
-style = "bold italic purple"
-symbol = " "
-disabled = true
-
-[fill]
-symbol = " "
-
-[aws]
-symbol = "  "
-
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
-
-[cmake]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[crystal]
-symbol = " "
-
-[dart]
-symbol = " "
+# ==========================================
+# CORE & GIT
+# ==========================================
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)"
 
 [directory]
 style = "blue bold"
 read_only = " 󰌾"
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fennel]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
+truncation_length = 3
+truncate_to_repo = true
 
 [git_branch]
 symbol = " "
+style = "purple"
 
 [git_commit]
 tag_symbol = '  '
 
 [git_status]
+style = "red"
 conflicted = "🏳"
 ahead = ""
 behind = ""
-diverged = "󰘖 "
+diverged = "󰘖"
 up_to_date = ""
 untracked = "?"
-stashed = "\\$"
+stashed = "$"
 modified = "!"
 staged = "+"
 renamed = "»"
 deleted = "x"
 
 
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[lua]
-symbol = " "
-detect_files = [".lua-version", "init.lua", "wezterm.lua"]
-detect_folders = ["lua", ".config/nvim", ".config/wezterm"]
-style = "bold blue"
-format = "[$symbol($version )]($style)"
-
-[memory_usage]
-threshold = 75
-disabled = false
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-format = "[$symbol($version )]($style)"
-
-[ocaml]
-symbol = " "
-
-[package]
-disabled = true
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-style = "dark_blue"
-symbol = ' '
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = "󱘗 "
-
-[scala]
-symbol = " "
-
-[swift]
-symbol = " "
-
-[zig]
-symbol = " "
-
-[gradle]
-symbol = " "
-
 [cmd_duration]
 min_time = 2000
 style = "dark_gray"
 format = "[$duration]($style) "
 
+# ==========================================
+# DATA ENGINEERING & PROGRAMACIÓN
+# ==========================================
+[python]
+style = "dark_blue"
+symbol = ' '
+# uv usa .venv por defecto, Starship lo detectará automáticamente como virtualenv
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[java]
+symbol = "󰅶 "
+style = "red"
+format = "[$symbol($version )]($style)"
+
+[nodejs]
+symbol = " "
+style = "green"
+format = "[$symbol($version )]($style)"
+
+[rust]
+symbol = "󱘗 "
+style = "orange"
+format = "[$symbol($version )]($style)"
+
+# ==========================================
+# INFRAESTRUCTURA & CLOUD (DevOps / DataOps)
+# ==========================================
+[terraform]
+symbol = "󱁢 "
+style = "purple"
+format = "[$symbol$workspace]($style) "
+
+[aws]
+symbol = "󰸏 "
+style = "orange"
+format = '[$symbol($profile )(\($region\) )]($style)'
+
+[gcloud]
+symbol = "󱇶 "
+style = "dark_gray"
+format = '[$symbol$account(@$domain)(\($region\))]($style) '
+
+[azure]
+symbol = "󰠅 "
+style = "blue"
+format = '[$symbol($subscription)]($style) '
+
+[kubernetes]
+symbol = "󱃾 "
+style = "cyan"
+format = '[$symbol$context( \($namespace\))]($style) '
+disabled = false
+
+[docker_context]
+symbol = " "
+style = "blue"
+format = "[$symbol$context]($style) "
+
+# ==========================================
+# PALETA DE COLORES (Tokyo Night)
+# ==========================================
 [palettes.tokyo_night]
-red = '#f7768e'         # This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red
-orange = '#ff9e64'      # Number and Boolean constants, Language support constants
-yellow = '#e0af68'      # Function parameters, Regex character sets, Terminal Yellow
-beige = '#cfc9c2'       # Parameters inside functions (semantic highlighting only)
-green = '#9ece6a'       # Strings, CSS class names
-aqua = '#73daca'        # Object literal keys, Markdown links, Terminal Green
-light_cyan = '#b4f9f8'  # Regex literal strings
-cyan = '#2ac3de'        # Language support functions, CSS HTML elements
-blue = '#7dcfff'        # Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords
-dark_blue = '#7aa2f7'   # Function names, CSS property names, Terminal Blue
-purple = '#bb9af7'      # Control Keywords, Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta
-foreground = '#c0caf5'  # Variables, Class names, Terminal White
-light_gray = '#a9b1d6'  # Editor Foreground
-gray = '#9aa5ce'        # Markdown Text, HTML Text
-dark_gray = '#565f89'   # Comments
-darker_gray = '#414868' # Terminal Black
-background = '#1a1b26'  # Editor Background (Night)
+red = '#f7768e'
+orange = '#ff9e64'
+yellow = '#e0af68'
+beige = '#cfc9c2'
+green = '#9ece6a'
+aqua = '#73daca'
+light_cyan = '#b4f9f8'
+cyan = '#2ac3de'
+blue = '#7dcfff'
+dark_blue = '#7aa2f7'
+purple = '#bb9af7'
+foreground = '#c0caf5'
+light_gray = '#a9b1d6'
+gray = '#9aa5ce'
+dark_gray = '#565f89'
+darker_gray = '#414868'
+background = '#1a1b26'
