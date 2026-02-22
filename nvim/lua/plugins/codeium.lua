@@ -15,7 +15,7 @@ return {
         },
         map_keys = true,
         key_bindings = {
-          accept = '<C-i>',
+          accept = '<C-\\>',
           accept_word = '<C-Right>',
           accept_line = '<C-Down>',
           clear = '<C-x>',
