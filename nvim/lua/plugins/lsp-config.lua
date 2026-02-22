@@ -59,6 +59,7 @@ return {
           lint = {
             ignore = { 'RET', 'ANN' },
             extendSelect = { 'F', 'E', 'W', 'UP', 'I' },
+            fixable = { 'ALL' },
           },
           configurationPreference = 'filesystemFirst',
           organizeImports = true,
@@ -103,10 +104,15 @@ return {
 
       -- Bash (scripts de ETL, entrypoints, etc.)
       bashls = {},
+
+      -- Terraform: LSP + Linter
+      terraformls = {},
+      tflint = {},
     }
 
     -- Mapa LSP name -> nombre en Mason (solo cuando difieren)
     local mason_name_map = {
+      terraformls = 'terraform-ls',
       sqls = 'sqls',
       jsonls = 'json-lsp',
       yamlls = 'yaml-language-server',

@@ -39,6 +39,8 @@ return {
       markdown = { 'prettier' },
       json = { 'prettier' },
       sql = { 'sqlfluff' },
+      terraform = { 'terraform_fmt' },
+      tf = { 'terraform_fmt' },
     },
   },
 }
