@@ -16,7 +16,10 @@ config.use_fancy_tab_bar = false
 config.max_fps = 144
 
 -- Font
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font_with_fallback({
+	"JetBrains Mono",
+	"Nerd Fonts Symbols Only",
+})
 
 -- Layout
 config.window_padding = {

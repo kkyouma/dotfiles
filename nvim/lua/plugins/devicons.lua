@@ -20,16 +20,17 @@ return {
         ['kql'] = { icon = '󰠮', color = '#00B8D4', name = 'Kusto' },
 
         -- Columnar
-        ['parquet'] = { icon = '󰈙', color = '#0288D1', name = 'Parquet' },
-        ['orc'] = { icon = '󰈙', color = '#8E24AA', name = 'ORC' },
-        ['feather'] = { icon = '󰈙', color = '#26A69A', name = 'Feather' },
+        ['parquet'] = { icon = '󰱾', color = '#0288D1', name = 'Parquet' },
+        ['orc'] = { icon = '󰱾', color = '#8E24AA', name = 'ORC' },
+        ['feather'] = { icon = '󰱾', color = '#26A69A', name = 'Feather' },
 
         -- Tabular
-        ['csv'] = { icon = '󰈛', color = '#8BC34A', name = 'CSV' },
-        ['tsv'] = { icon = '󰈛', color = '#7CB342', name = 'TSV' },
-        ['psv'] = { icon = '󰈛', color = '#689F38', name = 'PSV' },
-        ['xlsx'] = { icon = '󰈛', color = '#2E7D32', name = 'Excel' },
-        ['ods'] = { icon = '󰈛', color = '#1B5E20', name = 'ODS' },
+        ['csv'] = { icon = '', color = '#8BC34A', name = 'CSV' },
+        ['tsv'] = { icon = '󰱾', color = '#7CB342', name = 'TSV' },
+        ['psv'] = { icon = '󰱾', color = '#689F38', name = 'PSV' },
+        ['xlsx'] = { icon = '󱎏', color = '#2E7D32', name = 'Excel' },
+        ['ods'] = { icon = '󰱾', color = '#1B5E20', name = 'ODS' },
+        ['log'] = { icon = '󰈙', color = '#AFB42B', name = 'Log' },
 
         -- Bin
         ['pkl'] = { icon = '', color = '#3572A5', name = 'Pickle' },
@@ -48,6 +49,7 @@ return {
         ['jpg'] = { icon = '󰈟', color = '#25A69A', name = 'Jpg' },
         ['jpeg'] = { icon = '󰈟', color = '#25A69A', name = 'Jpeg' },
         ['gif'] = { icon = '󰈟', color = '#25A69A', name = 'Gif' },
+        ['pdf'] = { icon = '', color = '#EF5350', name = 'Pdf' },
 
         ['zip'] = { icon = '󰗄', color = '#AFB42B', name = 'Zip' },
         ['tar'] = { icon = '󰗄', color = '#AFB42B', name = 'Zip' },
@@ -76,8 +78,9 @@ return {
         ['scala'] = { icon = '', color = '#DC322F', name = 'Scala' },
         ['r'] = { icon = '󰟔', color = '#198CE7', name = 'R' },
         ['jl'] = { icon = '', color = '#9558B2', name = 'Julia' },
-        ['astro'] = { icon = '', color = '#7B4DFF', name = 'Astro' },
+        ['astro'] = { icon = '', color = '#7B4DFF', name = 'Astro' },
         ['cpp'] = { icon = '', color = '#f34b7d', name = 'CPlusPlus' },
+        ['lua'] = { icon = '', color = '#50A0CF', name = 'Lua' },
 
         -- sh
         ['sh'] = { icon = '', color = '#FF7043', name = 'Bash' },
@@ -113,14 +116,17 @@ return {
         ['google-services.json'] = { icon = '', color = '#FEC007', name = 'CargoLock' },
 
         -- Python
-        ['requirements.txt'] = { icon = '󱁻', color = '#3572A5', name = 'Requirements' },
-        ['.python-version'] = { icon = '󱁻', color = '#3572A5', name = 'PythonVersion' },
+        ['requirements.txt'] = { icon = '󱁻', color = '#41A5F5', name = 'Requirements' },
+        ['.python-version'] = { icon = '󱁻', color = '#6c7086', name = 'PythonVersion' },
         ['pyproject.toml'] = { icon = '', color = '#EF5350', name = 'PyProject' },
 
         -- Kubernetes
         ['kubernetes.yaml'] = { icon = '󱃾', color = '#438AFF', name = 'Kubernetes' },
         ['kubernetes.yml'] = { icon = '󱃾', color = '#438AFF', name = 'Kubernetes' },
         ['k8s.yml'] = { icon = '󱃾', color = '#438AFF', name = 'Kubernetes' },
+
+        -- Misc
+        ['init.lua'] = { icon = '', color = '#81B86B', name = 'Init' },
       },
     }
   end,
