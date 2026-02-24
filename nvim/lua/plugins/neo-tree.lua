@@ -8,23 +8,42 @@ return {
   },
   config = function()
     require('neo-tree').setup {
+      filesystem = {
+        filtered_items = {
+          visible = false,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          hide_by_name = { '.git' },
+        },
+      },
+
       default_component_configs = {
         git_status = {
           symbols = {
-            -- Change type
-            added = '', -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified = '', -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted = '✖ ', -- this can only be used in the git_status source
-            renamed = '󰁕 ', -- this can only be used in the git_status source
-            -- Status type
+            added = '',
+            modified = '',
+            deleted = '✖',
+            renamed = '󰁕',
             untracked = '',
-            ignored = ' ',
+            ignored = '',
             unstaged = '',
-            staged = '󰱒 ',
-            conflict = ' ',
+            staged = '',
+            conflict = '',
           },
         },
       },
     }
+
+    -- ── Dotfiles ──────────────────────────────
+    vim.api.nvim_set_hl(0, 'NeoTreeDotfile', {
+      fg = '#6c7086',
+    })
+
+    -- Gitignored: icon + name gray
+    vim.api.nvim_set_hl(0, 'NeoTreeGitIgnored', {
+      fg = '#45475a',
+      italic = true,
+    })
   end,
 }
