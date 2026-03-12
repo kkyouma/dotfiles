@@ -53,12 +53,12 @@ return {
 
     -- LSP name (clave) debe coincidir con el nombre que usa nvim-lspconfig/vim.lsp
     local servers = {
-      -- Python: ruff (linting/formatting) + ty (type checking)
+      -- PYTHON: I pray for Astral
       ruff = {
         settings = {
           lint = {
             ignore = { 'RET', 'ANN' },
-            extendSelect = { 'F', 'E', 'W', 'UP', 'I' },
+            extendSelect = { 'F', 'E', 'W', 'UP', 'I', 'B', 'C4', 'SIM', 'PD' },
             fixable = { 'ALL' },
           },
           configurationPreference = 'filesystemFirst',
@@ -68,26 +68,20 @@ return {
       },
       ty = {},
 
-      -- Lua tooling
-      selene = {},
+      -- WEB: Unificación con Biome (JS, TS, JSON) + Frameworks
+      biome = {}, -- Reemplaza Prettier/ESLint en proyectos modernos
+      vtsls = {}, -- LSP de TS más rápido que tsserver
+      vue_ls = {}, -- Vue Official (anteriormente vue_ls)
+      astro = {}, -- Astro Framework
 
-      -- TOML (pyproject.toml, etc.)
-      taplo = {},
+      -- INFRA & CLOUD
+      terraformls = {},
+      tflint = {},
+      dockerls = {},
+      -- docker_compose_language_service = {},
 
-      -- SQL
-      sqls = {},
-
-      -- JSON (schemas para dbt, etc.)
-      jsonls = {
-        settings = {
-          json = {
-            schemas = require('schemastore').json.schemas(),
-            validate = { enable = true },
-          },
-        },
-      },
-
-      -- YAML (Airflow DAGs, dbt schema.yml, GitHub Actions, k8s, etc.)
+      -- FORMATOS DE DATOS & CONFIG
+      taplo = {}, -- El estándar para TOML
       yamlls = {
         settings = {
           yaml = {
@@ -96,34 +90,48 @@ return {
           },
         },
       },
+      jsonls = { -- Biome puede manejarlo, pero jsonls + SchemaStore es más potente para dbt/k8s
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      },
 
-      -- Docker / Docker Compose
-      dockerls = {},
-      -- docker_compose_language_service = {},
-      -- docker_language_server = {},
-
-      -- Bash (scripts de ETL, entrypoints, etc.)
+      -- OTROS
       bashls = {},
-
-      -- Terraform: LSP + Linter
-      terraformls = {},
-      tflint = {},
+      sqlls = {},
+      selene = {}, -- Linter para Lua
     }
 
-    -- Mapa LSP name -> nombre en Mason (solo cuando difieren)
+    -- Mapa LSP name -> nombre en Mason (actualizado a 2026)
     local mason_name_map = {
-      terraformls = 'terraform-ls',
-      sqls = 'sqls',
-      jsonls = 'json-lsp',
-      yamlls = 'yaml-language-server',
-      dockerls = 'dockerfile-language-server',
-      -- docker_compose_language_service = 'docker-compose-language-service',
-      -- docker_language_server = 'docker-language-server',
-      bashls = 'bash-language-server',
-      ty = 'ty',
-      selene = 'selene',
-      taplo = 'taplo',
+      -- Python
       ruff = 'ruff',
+      ty = 'ty',
+
+      -- Web
+      biome = 'biome',
+      vtsls = 'vtsls',
+      vue_ls = 'vue-language-server',
+      astro = 'astro-language-server',
+
+      -- Infra
+      terraformls = 'terraform-ls',
+      tflint = 'tflint',
+      dockerls = 'dockerfile-language-server',
+      hadolint = 'hadolint',
+      -- docker_compose_language_service = 'docker-compose-language-service',
+
+      -- Data/Misc
+      taplo = 'taplo',
+      yamlls = 'yaml-language-server',
+      jsonls = 'json-lsp',
+      bashls = 'bash-language-server',
+      sqlls = 'sqlls',
+      selene = 'selene',
+      -- lua_ls = 'lua-language-server',
     }
 
     -- Construir lista de herramientas Mason
@@ -136,8 +144,9 @@ return {
       'lua-language-server',
       'stylua',
       'astro-language-server',
-      'prettier',
-      'eslint-lsp',
+      'hadolint',
+      -- 'prettier',
+      -- 'eslint-lsp',
     })
 
     require('mason-tool-installer').setup {

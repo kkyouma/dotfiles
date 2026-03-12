@@ -29,18 +29,29 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'ruff_format', 'ruff' },
-      javascript = { 'prettier' },
-      typescript = { 'prettier' },
-      css = { 'prettier' },
-      html = { 'prettier' },
-      astro = { 'prettier' },
-      yaml = { 'prettier' },
+
+      python = { 'ruff_format' },
+
+      javascript = { 'biome' },
+      typescript = { 'biome' },
+      javascriptreact = { 'biome' },
+      typescriptreact = { 'biome' },
+      vue = { 'biome' },
+
+      json = { 'biome' },
+      jsonc = { 'biome' },
+      css = { 'biome' },
+      html = { 'biome' },
+
       markdown = { 'prettier' },
-      json = { 'prettier' },
+      yaml = { 'prettier' },
+      toml = { 'taplo' },
+
+      sh = { 'shfmt' },
+
       sql = { 'sqlfluff' },
+
       terraform = { 'terraform_fmt' },
-      tf = { 'terraform_fmt' },
     },
   },
 }

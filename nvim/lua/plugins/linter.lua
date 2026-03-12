@@ -6,13 +6,10 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        sql = { 'sqlfluff' },
-        json = { 'eslint_d' },
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
-        astro = { 'eslint_d' },
+        sql = { 'sqlfmt' },
         terraform = { 'tflint', 'trivy' },
         tf = { 'tflint', 'trivy' },
+        dockerfile = { 'hadolint' },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

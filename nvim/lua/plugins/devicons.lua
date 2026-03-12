@@ -127,6 +127,7 @@ return {
 
         -- Misc
         ['init.lua'] = { icon = '', color = '#81B86B', name = 'Init' },
+        ['biome.json'] = { icon = '󰔷', color = '#64A8FA', name = 'Biome' },
       },
     }
   end,
