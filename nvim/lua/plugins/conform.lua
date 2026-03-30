@@ -36,7 +36,7 @@ return {
       typescript = { 'biome' },
       javascriptreact = { 'biome' },
       typescriptreact = { 'biome' },
-      vue = { 'biome' },
+      vue = { 'biome', 'prettier' },
 
       json = { 'biome' },
       jsonc = { 'biome' },
@@ -52,6 +52,11 @@ return {
       sql = { 'sqlfluff' },
 
       terraform = { 'terraform_fmt' },
+    },
+    formatters = {
+      biome = {
+        args = { 'check', '--write', '--stdin-file-path', '$FILENAME' },
+      },
     },
   },
 }

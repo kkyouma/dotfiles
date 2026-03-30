@@ -70,9 +70,33 @@ return {
 
       -- WEB: Unificación con Biome (JS, TS, JSON) + Frameworks
       biome = {}, -- Reemplaza Prettier/ESLint en proyectos modernos
-      vtsls = {}, -- LSP de TS más rápido que tsserver
-      vue_ls = {}, -- Vue Official (anteriormente vue_ls)
+      vtsls = {
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = '@vue/typescript-plugin',
+                  location = vim.fn.expand '$MASON/packages/vue-language-server/node_modules/@vue/language-server',
+                  languages = { 'vue' },
+                  configNamespace = 'typescript',
+                  enableForWorkspaceTypeScriptVersions = true,
+                },
+              },
+            },
+          },
+        },
+      }, -- LSP de TS más rápido que tsserver
+      vue_ls = {
+        settings = {
+          vue = {
+            hybridMode = true,
+          },
+        },
+      }, -- Vue Official
       astro = {}, -- Astro Framework
+      tailwindcss = {}, -- Tailwind CSS
 
       -- INFRA & CLOUD
       terraformls = {},
@@ -116,6 +140,7 @@ return {
       vtsls = 'vtsls',
       vue_ls = 'vue-language-server',
       astro = 'astro-language-server',
+      tailwindcss = 'tailwindcss-language-server',
 
       -- Infra
       terraformls = 'terraform-ls',
@@ -154,6 +179,10 @@ return {
       auto_update = true,
       run_on_start = true,
     }
+
+    -- Priority language servers (first to start)
+    vim.lsp.config('vtsls', servers.vtsls)
+    vim.lsp.enable 'vtsls'
 
     -- Habilitar todos los servidores del loop
     for name, server in pairs(servers) do
