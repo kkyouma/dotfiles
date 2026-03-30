@@ -19,7 +19,7 @@ vim.keymap.set('n', '<c-l>', '<cmd>wincmd l<CR>')
 
 -- neo-tree (plugin)
 vim.keymap.set('n', '<leader>n', '<cmd>Neotree toggle filesystem reveal left<CR>', {})
-vim.keymap.set('n', '<leader>bf', '<cmd>Neotree buffers reveal float<CR>', {})
+vim.keymap.set('n', '<leader>m', '<cmd>Neotree toggle filesystem reveal float<CR>', {})
 vim.keymap.set('n', '<C-S>', '<cmd>Neotree toggle buffers reveal float<CR>', {})
 
 -- Hold selection in ident
