@@ -23,7 +23,7 @@ config.font = wezterm.font_with_fallback({
 
 -- Layout
 config.window_padding = {
-	left = 2,
+	left = 4,
 	right = 2,
 	top = 0,
 	bottom = 0,
