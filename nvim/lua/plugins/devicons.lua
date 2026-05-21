@@ -26,11 +26,11 @@ return {
 
         -- Tabular
         ['csv'] = { icon = '', color = '#8BC34A', name = 'CSV' },
-        ['tsv'] = { icon = '󰱾', color = '#7CB342', name = 'TSV' },
-        ['psv'] = { icon = '󰱾', color = '#689F38', name = 'PSV' },
+        ['tsv'] = { icon = '󰱿', color = '#7CB342', name = 'TSV' },
+        ['psv'] = { icon = '󰱿', color = '#689F38', name = 'PSV' },
         ['xlsx'] = { icon = '󱎏', color = '#2E7D32', name = 'Excel' },
-        ['ods'] = { icon = '󰱾', color = '#1B5E20', name = 'ODS' },
-        ['log'] = { icon = '󰈙', color = '#AFB42B', name = 'Log' },
+        ['ods'] = { icon = '󰱿', color = '#1B5E20', name = 'ODS' },
+        ['log'] = { icon = '󰷉', color = '#AFB42B', name = 'Log' },
 
         -- Bin
         ['pkl'] = { icon = '', color = '#3572A5', name = 'Pickle' },
@@ -40,9 +40,9 @@ return {
         -- Semistructured
         ['json'] = { icon = '󰘦', color = '#FBC02D', name = 'JSON' },
         ['jsonl'] = { icon = '󰘦', color = '#F57F17', name = 'JSONL' },
-        ['xml'] = { icon = '󰈮', color = '#EF6C00', name = 'XML' },
-        ['yaml'] = { icon = '󰈙', color = '#9C4221', name = 'YAML' },
-        ['yml'] = { icon = '󰈙', color = '#9C4221', name = 'Yaml' },
+        ['xml'] = { icon = '', color = '#EF6C00', name = 'XML' },
+        ['yaml'] = { icon = '󰧮', color = '#FF5252', name = 'YAML' },
+        ['yml'] = { icon = '󰧮', color = '#FF5252', name = 'Yaml' },
 
         -- Unstructured
         ['png'] = { icon = '󰈟', color = '#25A69A', name = 'Png' },
@@ -51,11 +51,11 @@ return {
         ['gif'] = { icon = '󰈟', color = '#25A69A', name = 'Gif' },
         ['pdf'] = { icon = '', color = '#EF5350', name = 'Pdf' },
 
-        ['zip'] = { icon = '󰗄', color = '#AFB42B', name = 'Zip' },
-        ['tar'] = { icon = '󰗄', color = '#AFB42B', name = 'Zip' },
-        ['rar'] = { icon = '󰗄', color = '#AFB42B', name = 'Rar' },
+        ['zip'] = { icon = '', color = '#AFB42B', name = 'Zip' },
+        ['tar'] = { icon = '', color = '#AFB42B', name = 'Zip' },
+        ['rar'] = { icon = '', color = '#AFB42B', name = 'Rar' },
 
-        ['txt'] = { icon = '󰧮', color = '#41A5F5', name = 'Txt' },
+        ['txt'] = { icon = '', color = '#41A5F5', name = 'Txt' },
 
         -- ========================================
         -- INFRAESTRUCTURA COMO CÓDIGO
