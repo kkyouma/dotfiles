@@ -5,8 +5,9 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
+        lua = { 'selene' },
         markdown = { 'markdownlint' },
-        sql = { 'sqlfmt' },
+        sql = { 'sqlfluff' },
         terraform = { 'tflint', 'trivy' },
         tf = { 'tflint', 'trivy' },
         dockerfile = { 'hadolint' },

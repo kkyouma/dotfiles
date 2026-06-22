@@ -145,8 +145,6 @@ return {
 
       -- OTROS
       bashls = {},
-      sqlls = {},
-      selene = {}, -- Linter para Lua
     }
 
     -- Mapa LSP name -> nombre en Mason (actualizado a 2026)
@@ -174,8 +172,6 @@ return {
       yamlls = 'yaml-language-server',
       jsonls = 'json-lsp',
       bashls = 'bash-language-server',
-      sqlls = 'sqlls',
-      selene = 'selene',
       -- lua_ls = 'lua-language-server',
     }
 
@@ -190,8 +186,7 @@ return {
       'stylua',
       'astro-language-server',
       'hadolint',
-      -- 'prettier',
-      -- 'eslint-lsp',
+      'selene',
     })
 
     require('mason-tool-installer').setup {

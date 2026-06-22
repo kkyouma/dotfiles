@@ -45,17 +45,25 @@ return {
 
       markdown = { 'prettier' },
       yaml = { 'prettier' },
+      yml = { 'prettier' },
+
       toml = { 'taplo' },
 
       sh = { 'shfmt' },
 
-      sql = { 'sqlfluff' },
+      sql = { 'sqlfmt' },
 
       terraform = { 'terraform_fmt' },
     },
     formatters = {
       biome = {
         args = { 'check', '--write', '--stdin-file-path', '$FILENAME' },
+      },
+      sqlfmt = {
+        command = '/home/kyoumas/.local/bin/sqlfmt',
+      },
+      prettier = {
+        prepend_args = { '--print-width', '120' },
       },
     },
   },
