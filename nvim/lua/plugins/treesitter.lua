@@ -4,7 +4,7 @@ return {
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   opts = {
-    ensure_installed = { 'csv', 'markdown', 'markdown_inline', 'latex' },
+    ensure_installed = { 'csv', 'markdown', 'latex', 'sql', 'jinja' },
     auto_install = true,
     highlight = {
       enable = true,

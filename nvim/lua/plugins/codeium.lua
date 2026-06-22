@@ -12,6 +12,7 @@ return {
           lua = true,
           javascript = true,
           typescript = true,
+          sql = true,
         },
         map_keys = true,
         key_bindings = {
@@ -29,7 +30,7 @@ return {
         use_lsp = true,
         paths = {
           '.git',
-          'pyproyect.toml',
+          'pyproject.toml',
           'setup.py',
           'requirements.txt',
           'package.json',
