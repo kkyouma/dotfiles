@@ -253,7 +253,29 @@ plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "tokyo-night-dark"
+themes {
+  deep_blue_custom {
+    bg "#2F5F87"
+    fg "#CBE0F0"
+
+    black "#011423"
+    red "#f7768e"
+    green "#9ece6a"
+    yellow "#e0af68"
+    blue "#547998"
+    magenta "#bb9af7"
+    cyan "#7dcfff"
+    white "#B4D0E9"
+
+    orange "#0A64AC"
+
+    selection_bg "#275378"
+    selection_fg "#CBE0F0"
+  }
+}
+
+theme "deep_blue_custom"
+// theme "tokyo-night-dark"
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -332,7 +354,7 @@ pane_frames false
 // that will be used by default if this option is not set.
 // Examples:
 //
-// copy_command "xclip -selection clipboard" // x11
+copy_command "xclip -selection clipboard" // x11
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 // 
@@ -350,7 +372,7 @@ pane_frames false
 // Enable automatic copying (and clearing) of selection when releasing mouse
 // Default: true
 // 
-// copy_on_select true
+copy_on_select true
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
