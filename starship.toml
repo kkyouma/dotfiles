@@ -25,6 +25,7 @@ $rust\
 $docker_context\
 $kubernetes\
 $terraform\
+${custom.dbt}\
 $cmd_duration\
 """
 
@@ -57,7 +58,7 @@ behind = " "
 diverged = "󰘖"
 up_to_date = ""
 untracked = "?"
-stashed = "$"
+stashed = "S"
 modified = "!"
 staged = "+"
 renamed = "»"
@@ -92,6 +93,14 @@ format = "[$symbol($version )]($style)"
 symbol = "󱘗 "
 style = "orange"
 format = "[$symbol($version )]($style)"
+
+[custom.dbt]
+disabled = false
+when = "test -f dbt_project.yml"
+command = "dbt --version | awk '{print $2}'"
+symbol = "󱍿 "
+style = "orange"
+format = "[$symbol$output]($style) "
 
 # ==========================================
 # INFRAESTRUCTURA & CLOUD (DevOps / DataOps)
